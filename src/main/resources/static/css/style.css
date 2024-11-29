@@ -1,0 +1,73 @@
+.card-home-logo {
+	border: none;
+}
+
+.home-logo {
+	width: 18%;
+	margin-bottom: -30px;
+}
+
+.home-title {
+	margin-bottom: -38px;
+}
+
+.home-banner {
+	margin-left: 0px;
+	align-items: center;
+	width: 1263px;
+	align-items: center;
+}
+
+.home-login-btn {
+	margin-top: -280px;
+	margin-right: 116px;
+	margin-left: 1030px;
+	WIDTH: max-content;
+	border-radius: 1em;
+	/* color: white; */
+}
+
+.home-login-msg {
+	margin-top: -130px;
+	margin-left: 955px;
+	text-align: center;
+}
+
+.home-cards {
+	margin-top: 79px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.home-msg{
+	text-align: center;
+	text-decoration: underline;
+	color: #14578A;
+	font-size: 1.2rem;
+	line-height: 2.2;	
+}
+
+.emoji-large {
+	font-size: 1.3rem; /* Adjust the size as needed */
+}
+
+.ftr {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.login-head{
+	margin-bottom: -15px;
+}
+
+.or-divider {
+    font-size: 2rem; 
+    text-align: center;
+    position: relative;
+    margin: 40px 0; 
+    text-shadow: aqua;
+    
+  }
+  
+  body {
+  	overflow-x: hidden;
+  }

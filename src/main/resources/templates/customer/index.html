@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+<body>
+	<h1 style="text-align: center;">Customer Home Page</h1>
+	<h2 style="text-align: center;"
+		th:text="${'Welcome ' +customer.firstName+ ' '+customer.lastName}"></h2>
+	<div style="align-content: center;">
+		<a href="/logout">Logout</a>
+	</div>
+</body>
+</html>
