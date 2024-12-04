@@ -1,5 +1,8 @@
 package com.bankofmagic.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
@@ -13,12 +16,21 @@ public class CustomerController {
 
 	@Autowired
 	CustomerRepository customerRepository;
-	
+
 	@GetMapping("/customer/home")
-	public String customerDashboardHandler(@CurrentSecurityContext(expression = "authentication?.name") String username, Model model ) {
-			
+	public String customerDashboardHandler(@CurrentSecurityContext(expression = "authentication?.name") String username,
+			Model model) {
+
 		Customer customer = customerRepository.findByUsername(username);
-		model.addAttribute("customer",customer);
+		String loginTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy, hh:mm a"));
+		model.addAttribute("loginTime", loginTime);
+		model.addAttribute("customer", customer);
+
+		if (!customer.isVerified()) {
+
+			return "customer/open-account";
+		}
+		
 		return "customer/index";
 	}
 }
