@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{user-base :: layout(content=~{::section}, pageTitle='Home')}">
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<!-- favi-icon -->
+<link rel="icon" type="image/png" href="/img/fevi-logo-color.png">
+<title>Bank of Magic :: Home</title>
 </head>
 <body>
-	<h1 style="text-align: center;">Customer Home Page</h1>
-	<h2 style="text-align: center;"
-		th:text="${'Welcome ' +customer.firstName+ ' '+customer.lastName}"></h2>
-	<div style="align-content: center;">
-		<a href="/logout">Logout</a>
-	</div>
+
+	<section>
+
+		<div class="text-center" style="margin-left: 92%">
+			<a href="/logout" th:href="@{/logout}" class="btn btn-danger">Logout</a>
+		</div>
+		<!-- End logout button -->
+
+		<!-- Welcome Card with User Info -->
+		<div class="scrolling-container">
+			<div class="marquee-text">
+				Welcome, <span
+					th:text="${customer.firstName + ' ' + customer.lastName}"></span> <span
+					class="card-title" style="margin-left: 10px;"> Logged in on:
+					<span th:text="${loginTime}"></span>
+				</span>
+			</div>
+		</div>
+		<!-- End welcome card with User Info -->
+
+	</section>
 </body>
 </html>

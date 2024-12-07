@@ -39,12 +39,12 @@
 	margin-right: 10px;
 }
 
-.home-msg{
+.home-msg {
 	text-align: center;
 	text-decoration: underline;
 	color: #14578A;
 	font-size: 1.2rem;
-	line-height: 2.2;	
+	line-height: 2.2;
 }
 
 .emoji-large {
@@ -55,19 +55,105 @@
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
-.login-head{
+.login-head {
 	margin-bottom: -15px;
 }
 
 .or-divider {
-    font-size: 2rem; 
+	font-size: 2rem;
+	text-align: center;
+	position: relative;
+	margin: 40px 0;
+	text-shadow: aqua;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+.message-card {
+	max-width: 900px;
+	margin: 50px auto;
+	margin-top: 5%;
+	text-align: center;
+	padding: 30px;
+	border: 2px solid #f0ad4e;
+	border-radius: 8px;
+	background-color: #fff3cd;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.message-card h2 {
+	color: #856404;
+}
+
+.message-card p {
+	font-size: 1.1rem;
+	color: #6c757d;
+}
+
+.btn-primary {
+	background-color: #007bff;
+	border: none;
+}
+
+.btn-primary:hover {
+	background-color: #0056b3;
+}
+
+.welcome-card {
+	max-width: 500px;
+	border: 2px solid #007bff;
+	border-radius: 10px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+	margin-top: 12%;
+	margin-left: 50%;
+	position: relative;
+	transform: translate(-50%, -50%);
+	margin-bottom: -8%;
+}
+
+.card-header-create-account {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #fff;
+	background: linear-gradient(90deg, #007bff, #0056b3);
+	padding: 15px;
+	text-align: center;
+	border-bottom: none;
+}
+
+.card-text {
+	text-align: center;
+}
+
+.card-footer {
+	font-size: 0.9rem;
+	color: #6c757d;
+}
+
+.not-found {
+	text-align: center;
+}
+
+.scrolling-container {
     text-align: center;
-    position: relative;
-    margin: 40px 0; 
-    text-shadow: aqua;
-    
-  }
-  
-  body {
-  	overflow-x: hidden;
-  }
+    overflow: hidden;
+    white-space: nowrap;
+    color: blue;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: moveRightToLeft 18s linear infinite;
+}
+
+@keyframes moveRightToLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
