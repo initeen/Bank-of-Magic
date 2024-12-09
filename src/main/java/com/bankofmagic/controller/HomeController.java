@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.bankofmagic.entities.Customer;
 import com.bankofmagic.repository.CustomerRepository;
+import com.bankofmagic.service.CustomerService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -21,7 +22,7 @@ import jakarta.validation.Valid;
 public class HomeController {
 
 	@Autowired
-	CustomerRepository customerRepository;
+	CustomerService customerService;
 
 	@GetMapping({ "/", "/index" })
 	public String indexHandler() {
@@ -54,21 +55,23 @@ public class HomeController {
 	public String registerCustomerHandler(@Valid @ModelAttribute("customer") Customer customer, BindingResult result,
 			Model model, HttpSession session) {
 
-		
-	    if (customerRepository.existsByMobileNumber(customer.getMobileNumber())) {
+
+		if (customerService.existsByMobileNumber(customer.getMobileNumber())) {
 	        result.rejectValue("mobileNumber", "error.mobileNumber", "Mobile number already exists.");
 	    }
-	    if (customerRepository.existsByEmail(customer.getEmail())) {
+	    if (customerService.existsByEmail(customer.getEmail())) {
 	        result.rejectValue("email", "error.email", "Email already exists.");
 	    }
-	    if (customerRepository.existsByUsername(customer.getUsername())) {
+	    if (customerService.existsByAadhaarNumber(customer.getAadhaarNumber())) {
+			result.rejectValue("aadhaarNumber", "error.aadhaarNumber", "Aadhar Number already exists.");
+		}
+	    if (customerService.existsByUsername(customer.getUsername())) {
 	        result.rejectValue("username", "error.username", "Username already exists.");
 	    }
 	    
 		if (customer.getPassword() != null && !customer.getPassword().equals(customer.getConfirmPassword())) {
 			result.rejectValue("confirmPassword", "error.confirmPassword", "Passwords do not match.");
 		}
-
 		if (result.hasErrors()) {
 
 			System.out.println("Error" + result.toString());
@@ -84,8 +87,7 @@ public class HomeController {
 		customer.setVerified(false);
 		customer.setVerificationToken(UUID.randomUUID().toString());
 
-		customerRepository.save(customer);
-
+		customerService.saveCustomer(customer);
 		session.setAttribute("success", "Your registration was successfully completed. Please log in.");
 
 		return "redirect:/custom_login";
