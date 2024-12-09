@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{user-base :: layout(content=~{::section}, pageTitle='Home')}">
+	th:replace="~{user-base1 :: layout(content=~{::section}, pageTitle='Home')}">
 <head>
 <meta charset="UTF-8">
 <!-- favi-icon -->
@@ -9,24 +9,7 @@
 </head>
 <body>
 
-	<section>
-
-		<div class="text-center" style="margin-left: 92%">
-			<a href="/logout" th:href="@{/logout}" class="btn btn-danger">Logout</a>
-		</div>
-		<!-- End logout button -->
-
-		<!-- Welcome Card with User Info -->
-		<div class="scrolling-container">
-			<div class="marquee-text">
-				Welcome, <span
-					th:text="${customer.firstName + ' ' + customer.lastName}"></span> <span
-					class="card-title" style="margin-left: 10px;"> Logged in on:
-					<span th:text="${loginTime}"></span>
-				</span>
-			</div>
-		</div>
-		<!-- End welcome card with User Info -->
+	<section class="main">
 
 	</section>
 </body>

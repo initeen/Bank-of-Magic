@@ -15,6 +15,8 @@ import com.bankofmagic.entities.Account;
 import com.bankofmagic.entities.Customer;
 import com.bankofmagic.repository.AccountRepository;
 import com.bankofmagic.repository.CustomerRepository;
+import com.bankofmagic.service.AccountService;
+import com.bankofmagic.service.CustomerService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -22,16 +24,16 @@ import jakarta.servlet.http.HttpSession;
 public class CustomerController {
 
 	@Autowired
-	CustomerRepository customerRepository;
-
+	CustomerService customerService;
+	
 	@Autowired
-	AccountRepository accountRepository;
-
+	AccountService accountService;
+	
 	@GetMapping("/customer/home")
 	public String customerDashboardHandler(@CurrentSecurityContext(expression = "authentication?.name") String username,
 			Model model) {
-
-		Customer customer = customerRepository.findByUsername(username);
+		
+		Customer customer = customerService.findByUsername(username);
 		String loginTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy, hh:mm a"));
 		model.addAttribute("loginTime", loginTime);
 		model.addAttribute("customer", customer);
@@ -60,13 +62,13 @@ public class CustomerController {
 
 		System.out.println("submittin open account form..");
 
-		Customer customer = customerRepository.findByUsername(username);
+		Customer customer = customerService.findByUsername(username);
 		Account account = new Account();
 		account.setBranchName(branchName);
 		account.setAccountType(accountType);
 		account.setCustomer(customer);
 
-		accountRepository.save(account);
+		accountService.saveAccount(account);
 		System.out.println(account);
 
 		session.setAttribute("success",

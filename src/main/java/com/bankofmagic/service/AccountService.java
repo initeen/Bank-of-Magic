@@ -6,4 +6,8 @@ public interface AccountService {
 
 	void saveAccount(Account account);
 
+	long getTotalDistinctBranches();
+
+	double getTotalMoneyCollected();
+
 }
