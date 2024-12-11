@@ -3,14 +3,97 @@
 	th:replace="~{user-base1 :: layout(content=~{::section}, pageTitle='Home')}">
 <head>
 <meta charset="UTF-8">
-<!-- favi-icon -->
 <link rel="icon" type="image/png" href="/img/fevi-logo-color.png">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 <title>Bank of Magic :: Home</title>
+
 </head>
 <body>
+	<section class="main container">
 
-	<section class="main">
+		<div class="row g-4">
+			<div class="col-md-6">
+				<div class="card-custom card-customer">
+					<div>
+						<h3>
+							Hi, <span th:text="${customer.firstName}"></span>!
+						</h3>
+						<p class="mb-0">You are our valued customer.</p>
+					</div>
+					<div class="row mb-6">
+						<div class="col-6">
+							<p>
+								<strong>Email:</strong> <span th:text="${customer.email}"></span>
+							</p>
+							<p>
+								<strong>Mobile:</strong> <span
+									th:text="${customer.mobileNumber}"></span>
+							</p>
+						</div>
+						<div class="col-6">
+							<p>
+								<strong>Address:</strong> <span th:text="${customer.address}"></span>
+							</p>
+							<p>
+								<strong>Aadhaar:</strong> <span
+									th:text="${customer.aadhaarNumber}"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<div class="col-md-6">
+				<div class="card-custom card-account">
+					<div>
+						<h3>
+							Balance: ₹ <span th:text="${customer.account.balance}"></span>
+						</h3>
+						<p class="mb-0">Your account details:</p>
+					</div>
+					<div class="row mb-6">
+						<div class="col-6">
+							<p>
+								<strong>Account Number:</strong> <span
+									th:text="${customer.account.accountNumber}"></span>
+							</p>
+							<p>
+								<strong>Account Type:</strong> <span
+									th:text="${customer.account.accountType}"></span>
+							</p>
+						</div>
+						<div class="col-6">
+							<p>
+								<strong>Branch:</strong> <span
+									th:text="${customer.account.branchName}"></span>
+							</p>
+							<p>
+								<strong>IFSC Code:</strong> <span
+									th:text="${customer.account.ifscCode}"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-5 table-container">
+			<h4>Transaction History</h4>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Date</th>
+						<th scope="col">Transaction ID</th>
+						<th scope="col">Amount</th>
+						<th scope="col">Type</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+		</div>
 	</section>
 </body>
 </html>
