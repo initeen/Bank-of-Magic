@@ -28,7 +28,8 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public double getTotalMoneyCollected() {
 
-		return accountRepository.getTotalMoneyCollected();
+		Double totalMoney = accountRepository.getTotalMoneyCollected();
+		return totalMoney != null ? totalMoney : 0.0;
 	}
 
 }

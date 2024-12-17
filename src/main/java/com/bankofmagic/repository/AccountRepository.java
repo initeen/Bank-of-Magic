@@ -12,7 +12,13 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 	@Query("SELECT COUNT(DISTINCT a.branchName) FROM Account a")
 	long countDistinctBranch();
 
-	@Query("SELECT SUM(a.balance) FROM Account a")
+	/*
+	 * @Query("SELECT SUM(a.balance) FROM Account a") double
+	 * getTotalMoneyCollected();
+	 */
+
+	@Query("SELECT COALESCE(SUM(a.balance), 0) FROM Account a")
 	double getTotalMoneyCollected();
 
+	Account findByCustomerId(Long customerId);
 }
