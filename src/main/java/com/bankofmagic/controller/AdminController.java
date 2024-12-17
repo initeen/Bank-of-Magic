@@ -82,7 +82,7 @@ public class AdminController {
 		} else {
 			session.setAttribute("errorMessage", "Failed to approve the customer.");
 		}
-		
+
 		return "redirect:/admin/dashboard";
 	}
 
@@ -90,11 +90,11 @@ public class AdminController {
 	public String rejectCustomer(@RequestParam("customerId") Long customerId, HttpSession session) {
 		boolean isRejected = customerService.rejectCustomer(customerId);
 		if (isRejected) {
-            session.setAttribute("errorMessage", "Customer rejected successfully.");
-        } else {
-            session.setAttribute("errorMessage", "Failed to reject the customer.");
-        }
-		
+			session.setAttribute("errorMessage", "Customer rejected successfully.");
+		} else {
+			session.setAttribute("errorMessage", "Failed to reject the customer.");
+		}
+
 		return "redirect:/admin/dashboard";
 	}
 

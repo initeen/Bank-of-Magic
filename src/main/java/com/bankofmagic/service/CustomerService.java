@@ -32,4 +32,7 @@ public interface CustomerService {
 
 	boolean rejectCustomer(Long customerId);
 
+	Customer updateCustomerDetails(Long id, String firstName, String middleName, String lastName, String mobileNumber,
+			String email, String address, String state, String pincode, String password);
+
 }

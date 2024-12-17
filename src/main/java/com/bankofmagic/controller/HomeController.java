@@ -55,20 +55,19 @@ public class HomeController {
 	public String registerCustomerHandler(@Valid @ModelAttribute("customer") Customer customer, BindingResult result,
 			Model model, HttpSession session) {
 
-
 		if (customerService.existsByMobileNumber(customer.getMobileNumber())) {
-	        result.rejectValue("mobileNumber", "error.mobileNumber", "Mobile number already exists.");
-	    }
-	    if (customerService.existsByEmail(customer.getEmail())) {
-	        result.rejectValue("email", "error.email", "Email already exists.");
-	    }
-	    if (customerService.existsByAadhaarNumber(customer.getAadhaarNumber())) {
+			result.rejectValue("mobileNumber", "error.mobileNumber", "Mobile number already exists.");
+		}
+		if (customerService.existsByEmail(customer.getEmail())) {
+			result.rejectValue("email", "error.email", "Email already exists.");
+		}
+		if (customerService.existsByAadhaarNumber(customer.getAadhaarNumber())) {
 			result.rejectValue("aadhaarNumber", "error.aadhaarNumber", "Aadhar Number already exists.");
 		}
-	    if (customerService.existsByUsername(customer.getUsername())) {
-	        result.rejectValue("username", "error.username", "Username already exists.");
-	    }
-	    
+		if (customerService.existsByUsername(customer.getUsername())) {
+			result.rejectValue("username", "error.username", "Username already exists.");
+		}
+
 		if (customer.getPassword() != null && !customer.getPassword().equals(customer.getConfirmPassword())) {
 			result.rejectValue("confirmPassword", "error.confirmPassword", "Passwords do not match.");
 		}

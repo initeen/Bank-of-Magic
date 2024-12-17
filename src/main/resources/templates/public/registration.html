@@ -138,21 +138,27 @@
 											th:text="${#fields.errors('username')}"></div>
 									</div>
 									<div class="col-md-4">
-                                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password"
-                                           placeholder="Create your password" th:field="*{password}"
-                                           th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''"/>
-                                    <div class="text-danger" th:if="${#fields.hasErrors('password')}"
-                                         th:text="${#fields.errors('password')}"></div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="confirmPassword" class="form-label">Confirm Password<span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
-                                           placeholder="Confirm your password" th:field="*{confirmPassword}"
-                                           th:classappend="${#fields.hasErrors('confirmPassword')} ? 'is-invalid' : ''"/>
-                                    <div class="text-danger" th:if="${#fields.hasErrors('confirmPassword')}"
-                                         th:text="${#fields.errors('confirmPassword')}"></div>
-                                </div>
+										<label for="password" class="form-label">Password<span
+											class="text-danger">*</span></label> <input type="password"
+											class="form-control" name="password" id="password"
+											placeholder="Create your password" th:field="*{password}"
+											th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''" />
+										<div class="text-danger"
+											th:if="${#fields.hasErrors('password')}"
+											th:text="${#fields.errors('password')}"></div>
+									</div>
+									<div class="col-md-4">
+										<label for="confirmPassword" class="form-label">Confirm
+											Password<span class="text-danger">*</span>
+										</label> <input type="password" class="form-control"
+											name="confirmPassword" id="confirmPassword"
+											placeholder="Confirm your password"
+											th:field="*{confirmPassword}"
+											th:classappend="${#fields.hasErrors('confirmPassword')} ? 'is-invalid' : ''" />
+										<div class="text-danger"
+											th:if="${#fields.hasErrors('confirmPassword')}"
+											th:text="${#fields.errors('confirmPassword')}"></div>
+									</div>
 								</div>
 
 								<!-- Submit Button -->

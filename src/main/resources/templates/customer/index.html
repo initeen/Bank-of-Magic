@@ -7,11 +7,9 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 <title>Bank of Magic :: Home</title>
-
 </head>
 <body>
 	<section class="main container">
-
 		<div class="row g-4">
 			<div class="col-md-6">
 				<div class="card-custom card-customer">
@@ -78,8 +76,10 @@
 			</div>
 		</div>
 
-		<div class="mt-5 table-container">
-			<h4>Transaction History</h4>
+		<div class="card mt-5 table-container">
+			<div class="card-header">
+				<h4>Recent Transaction History</h4>
+			</div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -90,10 +90,27 @@
 					</tr>
 				</thead>
 				<tbody>
-
+					<tr th:each="transaction : ${transactions}">
+						<td th:text="${transaction.date}"></td>
+						<td th:text="${transaction.id}"></td>
+						<td><span
+							th:class="${transaction.type == 'Deposit' ? 'text-success' : (transaction.type == 'Withdraw' || transaction.type == 'Fund Transfer') ? 'text-danger' : ''}">
+								<span
+								th:text="${transaction.type == 'Withdraw' || transaction.type == 'Fund Transfer' ? '-' : ''}"></span>
+								<span th:text="${transaction.amount}"></span>
+						</span></td>
+						<td th:text="${transaction.type}"></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
+
+		<!-- Show more transactions button -->
+		<div class="d-flex justify-content-center mt-3 mb-4">
+			<a href="/customer/transaction-history" class="btn btn-primary">Show
+				More Transactions</a>
+		</div>
+
 	</section>
 </body>
 </html>

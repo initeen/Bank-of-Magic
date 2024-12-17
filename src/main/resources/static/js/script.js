@@ -15,3 +15,19 @@ document.getElementById('confirmPassword').addEventListener('input', function() 
 function confirmLogout() {
 	return confirm("Are you sure you want to logout?");
 }
+
+function toggleBalanceVisibility() {
+	const balanceField = document.getElementById("balance");
+	const toggleIcon = document.getElementById("toggleIcon");
+
+	if (balanceField.type === "password") {
+		balanceField.type = "text";
+		toggleIcon.classList.remove("bi-eye-slash");
+		toggleIcon.classList.add("bi-eye");
+	} else {
+		balanceField.type = "password";
+		toggleIcon.classList.remove("bi-eye");
+		toggleIcon.classList.add("bi-eye-slash");
+	}
+}
+

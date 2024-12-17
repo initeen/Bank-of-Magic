@@ -13,9 +13,9 @@ public class MailService {
 
 	@Autowired
 	private JavaMailSender mailSender;
-	
+
 	public void sendConfirmationEmail(String toEmail, String subject, String body) throws MessagingException {
-		
+
 		MimeMessage mimeMessage = mailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
 		helper.setTo(toEmail);
