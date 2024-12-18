@@ -111,10 +111,12 @@ public class Customer {
 	@OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL)
 	private List<FundTransfer> receivedTransfers;
 
+	
 	@PrePersist
 	private void prePersist() {
 		this.createdOn = LocalDate.now();
 		this.updatedOn = LocalDate.now();
 		this.verificationToken = java.util.UUID.randomUUID().toString();
 	}
+
 }

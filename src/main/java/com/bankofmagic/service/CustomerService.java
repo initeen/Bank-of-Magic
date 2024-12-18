@@ -35,4 +35,7 @@ public interface CustomerService {
 	Customer updateCustomerDetails(Long id, String firstName, String middleName, String lastName, String mobileNumber,
 			String email, String address, String state, String pincode, String password);
 
+	Customer findByEmail(String email);
+
+
 }

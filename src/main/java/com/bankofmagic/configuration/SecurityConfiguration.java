@@ -24,7 +24,7 @@ public class SecurityConfiguration {
 		
 		http.authorizeHttpRequests((request) -> request
 				
-				.requestMatchers("/","/index","/registration","/forgot", "/save-customer").permitAll()
+				.requestMatchers("/","/index","/registration","/forgot", "/save-customer", "/forgot-password").permitAll()
 				.requestMatchers("/static/**", "/css/**", "/img/**","/js/**").permitAll()
 				.requestMatchers("/admin/**").hasRole("ADMIN")
 				.requestMatchers("/customer/**").hasRole("CUSTOMER")
