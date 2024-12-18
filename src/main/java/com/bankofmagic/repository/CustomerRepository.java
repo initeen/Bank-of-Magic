@@ -30,4 +30,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	@Query("SELECT c FROM Customer c JOIN c.account a WHERE c.idRole = 1 AND c.isVerified = false AND a.status = false")
 	List<Customer> findPendingCustomersWithInactiveAccount();
 
+	Customer findByEmail(String email);
+
 }

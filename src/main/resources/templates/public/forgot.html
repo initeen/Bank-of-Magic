@@ -50,16 +50,18 @@
 							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<form>
+						<form th:action="@{/forgot-password}" method="post">
 							<div class="mb-3">
 								<label for="email" class="form-label">Enter your email
-									address</label> <input type="email" class="form-control" id="email"
-									placeholder="Email address" required>
+									address</label> <input type="email" name="email" class="form-control"
+									id="email" placeholder="Email address" required>
 							</div>
 							<div class="d-flex justify-content-center">
 								<button type="submit" class="btn btn-warning">Submit</button>
 							</div>
 						</form>
+						<p th:if="${error}" th:text="${error}"></p>
+						<p th:if="${message}" th:text="${message}"></p>
 					</div>
 				</div>
 			</div>

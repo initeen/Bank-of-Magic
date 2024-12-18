@@ -11,8 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.bankofmagic.entities.Customer;
-import com.bankofmagic.repository.CustomerRepository;
 import com.bankofmagic.service.CustomerService;
 
 import jakarta.servlet.http.HttpSession;
@@ -93,7 +94,15 @@ public class HomeController {
 	}
 
 	@GetMapping("/forgot")
-	public String forgotHandler() {
+	public String forgotHandler(Model model, HttpSession session) {
+
+		String successMessage = (String) session.getAttribute("success");
+
+		if (successMessage != null) {
+
+			model.addAttribute("success", successMessage);
+			session.removeAttribute("success");
+		}
 
 		return "public/forgot";
 	}
